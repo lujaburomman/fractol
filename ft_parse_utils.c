@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laburomm <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: laburomm <laburomm@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:20:37 by laburomm          #+#    #+#             */
-/*   Updated: 2025/02/12 13:22:13 by laburomm         ###   ########.fr       */
+/*   Updated: 2025/02/13 08:40:42 by laburomm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,21 @@ static double	parse_fraction(const char **str)
 	return (fraction);
 }
 
+static void	checkinput(const char *str)
+{
+	int i = 0;
+	while(str[i])
+	{
+		if (ft_isdigit(str[i]) || str[i] == '.' )
+			i++;
+		else
+			{
+				ft_printf("Invalid arguments\n");
+				exit(1);
+			}
+	}
+}
+
 double	ft_atof(const char *str)
 {
 	double	result;
@@ -44,6 +59,7 @@ double	ft_atof(const char *str)
 	result = 0.0;
 	fraction = 1.0;
 	sign = 1;
+	checkinput(str);
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')

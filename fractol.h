@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laburomm <laburomm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: laburomm <laburomm@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:03:35 by laburomm          #+#    #+#             */
-/*   Updated: 2025/02/12 13:03:45 by laburomm         ###   ########.fr       */
+/*   Updated: 2025/02/13 09:48:55 by laburomm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "./libft/includes/libft.h"
 # include <X11/keysym.h>
-# include <mlx.h>
+# include <./mlx.h>
 
 typedef struct s_data
 {
@@ -42,7 +42,7 @@ typedef struct s_data
 
 # define WIDTH 800
 # define HEIGHT 800
-//efine MAX_ITER 100
+
 //main
 int			ft_error(const char *msg);
 void		closeproject(t_data *data, int i);

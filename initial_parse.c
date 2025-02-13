@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initial_parse.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laburomm <laburomm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: laburomm <laburomm@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:04:09 by laburomm          #+#    #+#             */
-/*   Updated: 2025/02/12 13:19:36 by laburomm         ###   ########.fr       */
+/*   Updated: 2025/02/13 08:54:40 by laburomm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,13 @@ int	init_mlx(t_data *data)
 
 int	parse_args(int argc, char *argv[], t_data *data)
 {
+	size_t m = 10;
+	size_t j = 5;
 	if (argc < 2)
 		return (ft_error("Usage: ./fractol [mandelbrot] or [julia cr ci]"));
-	if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))
+	if (argc == 2 && (ft_strlen(argv[1]) == m) && !ft_strncmp(argv[1], "mandelbrot", 10))
 		data->fractal_type = MANDELBROT;
-	else if (argc == 4 && !ft_strncmp(argv[1], "julia", 5))
+	else if (argc == 4 && (ft_strlen(argv[1]) == j) && !ft_strncmp(argv[1], "julia", 5))
 	{
 		if (argc != 4)
 			return (ft_error("Usage: ./fractol julia cr ci"));
