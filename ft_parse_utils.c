@@ -6,7 +6,7 @@
 /*   By: laburomm <laburomm@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:20:37 by laburomm          #+#    #+#             */
-/*   Updated: 2025/02/13 08:40:42 by laburomm         ###   ########.fr       */
+/*   Updated: 2025/02/13 10:20:13 by laburomm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,35 @@ static double	parse_fraction(const char **str)
 
 static void	checkinput(const char *str)
 {
-	int i = 0;
+	
+	int i;
+	int flag;
+	
+	flag = 0;
+	i = 0;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
 	while(str[i])
 	{
-		if (ft_isdigit(str[i]) || str[i] == '.' )
+		if (ft_isdigit(str[i]))
 			i++;
-		else
+		else if (str[i] == '.')
+		{
+			if (flag == 1)
 			{
 				ft_printf("Invalid arguments\n");
 				exit(1);
 			}
+			flag = 1;
+			i++;
+		}
+		else
+		{
+			ft_printf("Invalid arguments\n");
+			exit(1);
+		}
 	}
 }
 
